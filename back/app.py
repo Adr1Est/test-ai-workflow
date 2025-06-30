@@ -16,7 +16,7 @@ def get_response_from_ai():
     if response:
         return jsonify(response), 200
     else:
-        return jsonify({"message": "Sin respuesta..."})
+        return jsonify({"message": "Sin respuesta..."}), 404
 
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))

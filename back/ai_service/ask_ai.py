@@ -18,13 +18,13 @@ def ask_ai(payload):
                 "content": payload
             }
         ],
-        "model": "deepseek-ai/DeepSeek-R1-0528" #Qwen/Qwen3-32B"
+        "model": "microsoft/Phi-3-mini-4k-instruct" # Cambiar modelo LLM al cambiar HF_API_URL
     })
     return response.json()
 
-response = ask_ai("Responde con una palabra a esta pregunta: ¿Cual es la capital de España?")
+# response = ask_ai("Responde con una palabra a esta pregunta: ¿Cual es la capital de España?")
 
-if response and "choices" in response:
-    print(response["choices"][0]["message"])
-else:
-    print("No se puedo obtener una respuesta válida.")
+# if response and "choices" in response:
+#     print(response["choices"][0]["message"])
+# else:
+#     print("No se puedo obtener una respuesta válida.")

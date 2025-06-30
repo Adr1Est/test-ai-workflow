@@ -19,10 +19,14 @@ function App() {
     setIsLoaded(true)
   }
 
+  const cleanResponse = (text) => {
+    return text.replace(/<think>.*?<\/think>/gs, '').trim()
+  }
+
   useEffect(() => {
     const getDataFromAPI = async () => {
       try{
-        const response = await askAi("Preséntate como LLM en 10 palabras.")
+        const response = await askAi("Utiliza únicamente 10 palabras para presentarte.")
         setAiData(response)
         setIsLoaded(true)
       }catch(error){
@@ -42,7 +46,7 @@ function App() {
     <>
       <div id="ai-box">
         <p>Respuesta:</p>
-        {isLoaded ? <p>{aiData.choices[0].message.content}</p> : <span className="loader"></span>}
+        {isLoaded && aiData?.choices?.[0]?.message?.content ? <p>{cleanResponse(aiData.choices[0].message.content)}</p> : aiData?.message ? <p>{aiData.message}</p> : <span className="loader"></span>}
         <input name="" id="prompt-ai" placeholder='Escribe algo aquí...' onChange={handleChange} value={prompt}/>
         <button id="sendButton" onClick={handleClick}>Preguntar a la IA</button>
       </div>
