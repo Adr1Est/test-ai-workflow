@@ -7,7 +7,7 @@ const askAi = async (prompt) => {
     body: JSON.stringify({ "payload": prompt })
   });
   const data = await response.json();
-  return data;
+  return data
 }
 
 export { askAi }

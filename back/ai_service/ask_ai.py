@@ -1,30 +1,23 @@
-import os
-import requests
+import os, json
 from dotenv import load_dotenv
+from openai import OpenAI
+
 
 def ask_ai(payload):
     load_dotenv()
-    HF_API_TOKEN = os.getenv("HF_TOKEN")
-    API_URL = os.getenv('HF_API_URL')
+    openai_key = os.getenv("OPENAI_API_KEY")
     
-    headers = {
-        "Authorization": f"Bearer {HF_API_TOKEN}",
-    }
+    client = OpenAI(api_key=openai_key)
+    
+    response = client.responses.create(
+        model="gpt-3.5-turbo",
+        input=payload
+    )
+    
+    return response.output_text
+# response = ask_ai("Responde con una palabra a esta pregunta: ¿Cual es la capital de España?")
 
-    response = requests.post(API_URL, headers=headers, json={
-        "messages": [
-            {
-                "role": "user",
-                "content": payload
-            }
-        ],
-        "model": "deepseek-ai/DeepSeek-R1-0528" #Qwen/Qwen3-32B"
-    })
-    return response.json()
-
-response = ask_ai("Responde con una palabra a esta pregunta: ¿Cual es la capital de España?")
-
-if response and "choices" in response:
-    print(response["choices"][0]["message"])
-else:
-    print("No se puedo obtener una respuesta válida.")
+# if response and "choices" in response:
+#     print(response["choices"][0]["message"])
+# else:
+#     print("No se puedo obtener una respuesta válida.")

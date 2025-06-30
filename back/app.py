@@ -14,6 +14,7 @@ def get_response_from_ai():
     payload = request.json.get("payload", None)
     response = ask_ai(payload)
     if response:
+        print(response)
         return jsonify(response), 200
     else:
         return jsonify({"message": "Sin respuesta..."})
