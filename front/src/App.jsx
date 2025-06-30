@@ -26,7 +26,7 @@ function App() {
   useEffect(() => {
     const getDataFromAPI = async () => {
       try{
-        const response = await askAi("Utiliza únicamente 10 palabras para presentarte.")
+        const response = await askAi("Dame el tip astronómico del día. No más de 20 palabras.")
         setAiData(response)
         setIsLoaded(true)
       }catch(error){
@@ -61,10 +61,9 @@ function App() {
             <p><strong>Nombre:</strong> {place.name}</p>
             <p><strong>Localización:</strong> {place.location}</p>
             <div>
-              <p><strong>Latitud:</strong>Latitud: {place.coordinates.latitude}</p>
+              <p><strong>Latitud:</strong> {place.coordinates.latitude}</p>
               <p><strong>Longitud:</strong> {place.coordinates.longitude}</p>
             </div>
-            {/* <p>Coords: {place.coordinates.}</p> */}
           </div>
         )) : <p>Sin datos...</p>}
       </div>
