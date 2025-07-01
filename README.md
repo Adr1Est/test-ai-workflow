@@ -5,4 +5,4 @@
 
 ### Herramientas
 ![Tools](https://go-skill-icons.vercel.app/api/icons?i=react,css)\
-![Tools](https://go-skill-icons.vercel.app/api/icons?i=python,flask,huggingface,api,insomnia)
+![Tools](https://go-skill-icons.vercel.app/api/icons?i=python,flask,huggingface,api,insomnia,chatgpt)
