@@ -1,1 +1,1 @@
-Dame 3 spots para ver eventos astronómicos cerca de Barrio de Valdezarza, Madrid. Devuélveme únicamente un JSON válido, sin ninguna etiqueta, formato o texto adicional. Solo el JSON puro y cada lugar debe tener name, location y coordinates: {latitude, longitude}.
+Dame 3 spots para ver eventos astronómicos cerca de Sarrikue, Bilbao. Devuélveme únicamente un JSON válido, sin ninguna etiqueta, formato o texto adicional. Solo el JSON puro y cada lugar debe tener name, location y coordinates: {latitude, longitude}.
